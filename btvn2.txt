@@ -1,0 +1,11 @@
+Phần 1: Phân tích
+
+an bị nhầm giữa tìm tên file với tìm nội dung trong file. lệnh Get-ChildItem -Recurse -Filter "*404*" chỉ đi tìm những file hoặc thư mục có tên chứa 404, nó không đọc bên trong file nên không ra dòng lỗi nào.
+
+Get-ChildItem dùng để tìm vị trí, liệt kê file và thư mục (tìm theo tên). Select-String dùng để tìm nội dung, nó đọc bên trong file rồi in ra những dòng có chứa từ khóa.
+
+Phần 2: Hoàn thiện
+
+Select-String -Path access.log -Pattern "error"
+
+Select-String mặc định không phân biệt hoa thường và tự in kèm số dòng nên không cần thêm cờ gì.
